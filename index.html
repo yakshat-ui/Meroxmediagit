@@ -147,40 +147,8 @@
             width: 8px; height: 8px; border-radius: 50%; background: var(--secondary-gold); 
         }
         
-        /* NEW: Locked/Coming Soon Styling */
-        .locked-card {
-            position: relative;
-            overflow: hidden;
-        }
-        .locked-card > * {
-            opacity: 0.3; /* Fades the actual content */
-            filter: grayscale(100%);
-        }
-        .locked-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(10,31,19,0.7), rgba(0,0,0,0.9));
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1 !important; /* Keeps overlay visible */
-            filter: none !important;
-            border-radius: 24px;
-            backdrop-filter: blur(2px); /* Light blur effect on background */
-        }
-        .locked-overlay span {
-            color: var(--secondary-gold);
-            font-size: 1.2rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            background: rgba(0,0,0,0.6);
-            padding: 12px 25px;
-            border: 1px solid rgba(255,215,0,0.3);
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+
+    
 
         .placeholder-card {
             border: 3px dashed rgba(46, 139, 87, 0.2); background: transparent; box-shadow: none;
@@ -438,12 +406,12 @@
                     <li>Vocal Recording</li>
                     <li>Mixing & Mastering</li>
                     <li>Sound Design</li>
-                    <li>Background Scores</li>
+                    <li>Background Scores (for reels, ads, films)</li>
                 </ul>
             </div>
 
             <div class="service-card locked-card reveal delay-3">
-                <div class="service-icon">🧊</div>
+                <div class="service-icon">🧊</div> <STrong>Coming Soon</STrong>
                 <h3>VFX & 3D</h3>
                 <ul>
                     <li>3D Product Animation</li>
@@ -452,7 +420,7 @@
                     <li>Advanced Color Grading</li>
                 </ul>
                 <div class="locked-overlay">
-                    <span>Coming Soon</span>
+                    
                 </div>
             </div>
 
