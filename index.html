@@ -105,7 +105,6 @@
 
         .gradient-text { background: linear-gradient(135deg, var(--primary-green), var(--primary-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-       
         .hero {
             min-height: 100vh;
             display: flex; align-items: center; justify-content: center;
@@ -530,15 +529,15 @@
         /* ── FOOTER ── */
         footer { background: var(--text-dark); padding: 60px 5% 30px; color: var(--bg-white); }
         .footer-content { 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    flex-direction: column; 
-    gap: 15px; 
-    max-width: 1200px; 
-    margin: 0 auto 40px; 
-}
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            flex-direction: column; 
+            gap: 15px; 
+            max-width: 1200px; 
+            margin: 0 auto 40px; 
+        }
         .footer-logo { font-size: 2.2rem; font-weight: 800; color: var(--bg-white); letter-spacing: -0.5px; }
         .footer-logo span { color: var(--secondary-gold); }
         .footer-tagline { color: #A0AAB2; font-size: 1rem; margin-top: 8px; font-weight: 500; }
@@ -558,25 +557,82 @@
             .contact-grid { grid-template-columns: 1fr; }
             .hero-stat-float { display: none; }
         }
+        
+        /* UPDATED MOBILE VIEW: Highly Compact & Zoomed Out (~70%) */
         @media(max-width:768px) {
-            .hero h1 { font-size: 2.9rem; letter-spacing: -1px; }
-            .nav-links { display: none; }
-            .scroll-indicator { bottom: 24px; }
+            /* 1. Global Scale Down (~72% zoom effect for all rem units) */
+            html { font-size: 11.5px; }
+            
+            /* 2. Compact Sections & Spacing */
+            section { padding: 40px 5%; }
+            .section-header { margin-bottom: 35px; }
+            .section-header h2 { font-size: 3.2rem; }
+            
+            /* 3. Hero Adjustments */
+            .hero { padding-top: 60px; min-height: 85vh; }
+            .hero h1 { font-size: 3.8rem; margin-bottom: 18px; letter-spacing: -1px; }
+            .hero p { margin-bottom: 30px; }
             .hero-corner { display: none; }
-            .founder-layout { flex-direction: column; padding: 30px; }
-            .founder-img { width: 100%; height: 300px; box-shadow: 0 15px 0 var(--primary-green); transform: none; }
-            .footer-content { flex-direction: column; text-align: center; align-items: center; }
-            .footer-info { text-align: center; }
-            .journey-grid { grid-template-columns: 1fr; }
-            .journey-intro { flex-direction: column; padding: 30px; text-align: center; }
+            .scroll-indicator { bottom: 15px; transform: scale(0.8) translateX(-50%); transform-origin: left; }
+            
+            /* 4. Navbar */
+            nav { padding: 10px 5%; }
+            .nav-links { display: none; }
+            .logo img { height: 18px !important; }
+            .logo { font-size: 1.6rem; }
+
+            /* 5. Grids & Cards */
+            .services-grid { gap: 16px; }
+            .service-card { padding: 25px 20px; }
+            .service-icon { width: 48px; height: 48px; margin-bottom: 15px; }
+            
+            /* 6. Stats & Portfolio */
+            .stat-item { padding: 25px 15px; }
+            .gallery-filter { gap: 8px; margin-bottom: 25px; }
+            .filter-btn { padding: 10px 20px; }
+            /* Reduced minmax forces 2 columns on mobile, packing more in */
+            .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+            .portfolio-item { height: 200px; } 
+            
+            /* 7. Why Us & Process */
+            .comparison-others h3, .comparison-us h3 { margin-bottom: 18px; }
+            .comparison-us { padding: 30px 20px; }
+            .process-step { padding: 16px 20px; }
+            .process-connector { height: 10px; margin-left: 30px; }
+            .process-detail { padding: 25px; }
+            
+            /* 8. Inside Merox (Founder, Journey, Mission) */
+            .tabs-header { gap: 10px; margin-bottom: 30px; }
+            .founder-layout { flex-direction: column; padding: 25px; gap: 25px; }
+            .founder-img { width: 100%; height: 260px; box-shadow: 0 10px 0 var(--primary-green); transform: none; }
+            .journey-grid { grid-template-columns: 1fr; gap: 16px; }
+            .journey-intro { flex-direction: column; padding: 25px; text-align: center; gap: 18px; }
             .journey-intro::before { display: none; }
-            .journey-intro-img { width: 100%; height: 200px; }
-            .cta h2 { font-size: 2.6rem; }
-            .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-            .contact-methods { grid-template-columns: repeat(2, 1fr); }
-            .form-row { grid-template-columns: 1fr; }
-            .service-toggles { grid-template-columns: 1fr; }
-            .testimonial-card { padding: 35px 25px; }
+            .journey-intro-img { width: 100%; height: 180px; }
+            .journey-card-img-wrap { height: 240px !important; }
+            .journey-card-body { padding: 20px; }
+            .mission-box { padding: 50px 25px; }
+            .mission-box h3 { font-size: 2.6rem; margin-bottom: 18px; }
+            
+            /* 9. Testimonials & FAQ */
+            .testimonial-card { padding: 30px 20px; }
+            .testimonial-card::before { font-size: 4rem; top: -10px; left: 20px; }
+            .testimonial-text { margin-bottom: 25px; }
+            .faq-question { padding: 18px 20px; }
+            .faq-answer.open { padding: 0 20px 20px; }
+            
+            /* 10. Contact, CTA & Footer */
+            .contact-methods { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 35px; }
+            .contact-method { padding: 18px 12px; }
+            .form-row { grid-template-columns: 1fr; gap: 12px; }
+            .service-toggles { grid-template-columns: 1fr; gap: 10px; }
+            .budget-options { gap: 10px; }
+            .contact-info-card { padding: 22px; }
+            .cta { padding: 60px 5%; margin-top: 30px; }
+            .cta h2 { font-size: 2.8rem; margin-bottom: 20px; }
+            footer { padding: 50px 5% 25px; }
+            .footer-content { flex-direction: column; text-align: center; align-items: center; gap: 20px; }
+            .footer-info { text-align: center; }
         }
     </style>
 </head>
@@ -602,14 +658,11 @@
         </ul>
     </nav>
 
-    <!-- ══ HERO ══ -->
     <section id="home" class="hero">
 
-        <!-- Decorative corner brackets -->
         <div class="hero-corner tl"></div>
         <div class="hero-corner br"></div>
 
-        <!-- Floating micro stats (desktop only) -->
         <div class="hero-stat-float left">
             <div class="sf-num">70+<span style="color:var(--secondary-gold);font-size:1.2rem;">+</span></div>
             <div class="sf-label">Projects Done</div>
@@ -640,7 +693,6 @@
         </div>
     </section>
 
-    <!-- ══ SERVICES ══ -->
     <section id="services">
         <div class="section-header reveal">
             <div class="eyebrow">What We Do</div>
@@ -681,7 +733,6 @@
         </div>
     </section>
 
-    
     <div class="stats-bar">
         <div class="stat-item reveal d1"><div class="stat-num">8<em>+</em></div><div class="stat-label">Years Active</div></div>
         <div class="stat-item reveal d2"><div class="stat-num">70<em>+</em></div><div class="stat-label">Projects Done</div></div>
@@ -689,7 +740,6 @@
         <div class="stat-item reveal d4"><div class="stat-num">1 <em style="font-size:1.8rem;font-weight:700;">Team</em></div><div class="stat-label">Under One Roof</div></div>
     </div>
 
-   
     <section id="portfolio">
         <div class="section-header reveal">
             <div class="eyebrow">Selected Work</div>
@@ -758,7 +808,6 @@
         </div>
     </section>
 
-    <!-- ══ COMPARISON ══ -->
     <section id="comparison">
         <div class="section-header reveal">
             <div class="eyebrow">Comparison</div>
@@ -791,7 +840,6 @@
         </div>
     </section>
 
-    <!-- ══ PROCESS ══ -->
     <section id="process">
         <div class="section-header reveal">
             <div class="eyebrow">How We Work</div>
@@ -875,7 +923,6 @@
         </div>
     </section>
 
-    <!-- ══ INSIDE MEROX ══ -->
     <section id="discover">
         <div class="section-header reveal">
             <div class="eyebrow">Who We Are</div>
@@ -911,7 +958,6 @@
                 <div class="journey-intro-img"><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=600&auto=format&fit=crop" alt="2026"></div>
             </div>
             <div class="journey-grid">
-    <!-- 2016 Card -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="Screenshot_20200402-141752_WhatsAppBusiness.jpg" alt="2016">
@@ -923,7 +969,6 @@
         </div>
     </div>
 
-    <!-- 2017 Card -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="IMG_0930.PNG" alt="2017">
@@ -935,7 +980,6 @@
         </div>
     </div>
 
-    <!-- 2018 Card (New) -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="DSC_1388.JPG" alt="2018">
@@ -948,7 +992,6 @@
         </div>
     </div>
 
-    <!-- 2019 Card -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="101628254_3380903732134844_1748765568871170048_n.jpg" alt="2019">
@@ -961,7 +1004,6 @@
         </div>
     </div>
 
-    <!-- 2020 Card -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="vlcsnap-2024-07-10-22h15m09s580.png" alt="2020">
@@ -973,7 +1015,6 @@
         </div>
     </div>
 
-    <!-- 2021 Card -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop" alt="2021">
@@ -985,7 +1026,6 @@
         </div>
     </div>
 
-    <!-- 2022 Card -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?q=80&w=800&auto=format&fit=crop" alt="2022">
@@ -997,7 +1037,6 @@
         </div>
     </div>
 
-    <!-- 2023 Card (New) -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop" alt="2023">
@@ -1009,7 +1048,6 @@
         </div>
     </div>
 
-    <!-- 2024 Card -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="WEDG2405.JPG" alt="2024">
@@ -1021,7 +1059,6 @@
         </div>
     </div>
 
-    <!-- 2025 Card  -->
     <div class="journey-card">
         <div class="journey-card-img-wrap" style="height: 350px;">
             <img class="journey-card-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop" alt="2025">
@@ -1045,7 +1082,6 @@
         </div>
     </section>
 
-    <!-- ══ TESTIMONIALS ══ -->
     <section id="testimonials">
         <div class="section-header reveal">
             <div class="eyebrow">What Clients Say</div>
@@ -1095,7 +1131,6 @@
         </div>
     </section>
 
-    <!-- ══ FAQ ══ -->
     <section id="faq">
         <div class="section-header reveal">
             <div class="eyebrow">FAQ</div>
@@ -1126,7 +1161,6 @@
         </div>
     </section>
 
-    <!-- ══ CONTACT ══ -->
     <section id="contact">
         <div class="section-header reveal">
             <div class="eyebrow">Get In Touch</div>
@@ -1231,7 +1265,7 @@
             <div>
                 <div class="footer-logo">Merox<span>Media.</span></div>
                 <div class="footer-tagline">Everything for your brand, in one place.</div>
-           
+            
             </div>
         </div>
         <div class="footer-bottom">&copy; 2026 Merox Media. All Rights Reserved. Designed to stand out.</div>
