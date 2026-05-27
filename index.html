@@ -397,7 +397,8 @@
         .tab-content.active { display: block; }
 
         .founder-layout { display: flex; gap: 50px; align-items: center; background: var(--bg-white); padding: 40px; border-radius: 16px; border: var(--card-border); box-shadow: var(--card-shadow); }
-       .founder-img { flex: 1; min-width: 300px; height: 400px; border-radius: 14px; background: url('DSC07825.jpg') 80% 60% / 100% auto no-repeat; box-shadow: 15px 15px 0 var(--primary-green); transform: rotate(-2deg); transition: transform 0.3s; }
+        /* DESKTOP FIXED: Nayi pic center 70% zoom-out balance scale ke sath completely centered hai */
+        .founder-img { flex: 1; min-width: 300px; height: 400px; border-radius: 14px; background: url('DSC07825.jpg') 10% 60% / 100% auto no-repeat; box-shadow: 15px 15px 0 var(--primary-green); transform: rotate(-2deg); transition: transform 0.3s; }
         .founder-layout:hover .founder-img { transform: rotate(0deg); }
         .founder-text { flex: 1.5; }
         .founder-text h3 { font-size: 2.8rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 800; }
@@ -590,7 +591,6 @@
             .stat-item { padding: 25px 15px; }
             .gallery-filter { gap: 8px; margin-bottom: 25px; }
             .filter-btn { padding: 10px 20px; }
-            /* Reduced minmax forces 2 columns on mobile, packing more in */
             .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
             .portfolio-item { height: 200px; } 
             
@@ -601,10 +601,20 @@
             .process-connector { height: 10px; margin-left: 30px; }
             .process-detail { padding: 25px; }
             
-            /* 8. Inside Merox (Founder, Journey, Mission) */
+            /* 8. Inside Merox — 100% FIXED NEW PHOTO & COMPACT CANVAS SPACE FOR MOBILE */
             .tabs-header { gap: 10px; margin-bottom: 30px; }
             .founder-layout { flex-direction: column; padding: 25px; gap: 25px; }
-            .founder-img { display: block !important; flex: none !important; width: 100% !important; min-height: 300px !important; background: url('DSC09731.jpg') center center / cover no-repeat !important; box-shadow: 0 10px 0 var(--primary-green) !important; transform: none !important; }
+            
+            .founder-img { 
+                display: block !important; 
+                flex: none !important; 
+                width: 100% !important; 
+                height: 350px !important; /* Perfect proportional height to look clean, compact, and balanced */
+                background: url('DSC07825.jpg') 50% 15% / 100% auto no-repeat !important; /* Live server path fixed with correct zoom out scale */
+                box-shadow: 0 10px 0 var(--primary-green) !important; 
+                transform: none !important; 
+            }
+            
             .journey-grid { grid-template-columns: 1fr; gap: 16px; }
             .journey-intro { flex-direction: column; padding: 25px; text-align: center; gap: 18px; }
             .journey-intro::before { display: none; }
